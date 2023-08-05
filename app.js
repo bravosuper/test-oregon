@@ -6,7 +6,7 @@ const axios = require("axios");
 app.get("/", (req, res) => {
 	var ua = req.get("user-agent");
 
-	axios.get("https://hello-world-lively-dust-2774.dhanwaaninvestor.workers.dev/", {
+	axios.get("https://hello-world-lively-dust-afs.onrender.com/", {
 		headers : {
 			"user-agent" : `${ua}`
 		}
