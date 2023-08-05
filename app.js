@@ -1,18 +1,17 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
-const fetch = require("node-fetch");
+const axios = require("axios");
 
 app.get("/", (req, res) => {
 	var ua = req.get("user-agent");
 
-	fetch("https://hello-world-lively-dust-2774.dhanwaaninvestor.workers.dev/", {
+	axios.get("https://hello-world-lively-dust-2774.dhanwaaninvestor.workers.dev/", {
 		headers : {
 			"user-agent" : `${ua}`
 		}
 	})
-	.then(r => r.text())
-	.then(r => res.type('html').send(r))
+	.then(r => res.type('html').send(r.data))
 });
 
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
